@@ -20,6 +20,7 @@ Route::get('/', function()
 Route::group(array('prefix' => 'dashboard'), function()
 {
     Route::get('/', array('as' => 'login','uses' => 'Dashboard\Userscontroller@index'));
+    Route::post('/home', array('as' => 'loginPost', 'uses' => 'Dashboard\UsersController@control'));
 });
 
 
