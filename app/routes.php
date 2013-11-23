@@ -19,5 +19,7 @@ Route::get('/', function()
 
 Route::group(array('prefix' => 'dashboard'), function()
 {
-    Route::get('/', array('as' => 'login','uses' => 'UsersController@index'));
+    Route::get('/', array('as' => 'login','uses' => 'Dashboard\Userscontroller@index'));
 });
+
+
