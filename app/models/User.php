@@ -5,7 +5,9 @@ use Illuminate\Auth\Reminders\RemindableInterface;
 
 class User extends Eloquent implements UserInterface, RemindableInterface {
 
-	/**
+
+    protected $errors;
+    /**
 	 * The database table used by the model.
 	 *
 	 * @var string
@@ -48,5 +50,24 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 	{
 		return $this->email;
 	}
+
+    public static $rules = array(
+        'username'=>'required',
+        'password' => 'required'
+
+    );
+
+    public static $messages = array(
+        'username.required' => 'Lütfen kullanıcı adınızı giriniz',
+        'password.required' => 'Lütfen parolanızı giriniz'
+    );
+
+    public static function validate($user){
+        return $validation = Validator::make($user, static::$rules, static::$messages);
+
+    }
+
+
+
 
 }

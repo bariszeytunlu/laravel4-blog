@@ -9,11 +9,11 @@
     <title>Barış's Blog Login</title>
 
 
-@section('assets')
-    {{-- Bootstrap core CSS --}}
-    {{ HTML::style('_assets/css/bootstrap.min.css') }}
-    {{ HTML::style('_assets/css/bootstrap-theme.min.css') }}
 
+    @section('assets')
+        {{ HTML::style('_assets/css/bootstrap.min.css') }}
+        {{ HTML::style('_assets/css/bootstrap-theme.min.css') }}
+    @show
 
 
 
@@ -22,16 +22,7 @@
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
     <![endif]-->
-@show
+
 </head>
 
 <body>
-
-    @yield('content')
-
-
-{{-- Bootstrap & another js files --}}
-{{ HTML::script('_assets/js/bootstrap.min.js') }}
-{{ HTML::script('//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js') }}
-</body>
-</html>

@@ -20,7 +20,20 @@ Route::get('/', function()
 Route::group(array('prefix' => 'dashboard'), function()
 {
     Route::get('/', array('as' => 'login', 'uses' => 'Dashboard\Userscontroller@index'));
-    Route::post('/home', array('as' => 'loginPost', 'uses' => 'Dashboard\UsersController@control'));
+    Route::post('/', array('as' => 'loginPost',
+                            'uses' => 'Dashboard\UsersController@signIn'
+                            ));
+
+
+});
+
+//  Auth Control
+
+Route::group(array('prefix' => 'dashboard', 'before' => 'auth'), function(){
+
+    Route::get('/logout', array('as' => 'logout', 'uses' => 'Dashboard\UsersController@logout'));
+    Route::get('/home', array('as' => 'home', 'uses' => 'Dashboard\HomeController@index'));
+
 });
 
 

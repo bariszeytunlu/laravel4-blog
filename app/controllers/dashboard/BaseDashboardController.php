@@ -7,6 +7,9 @@ class BaseDashboardController extends Controller {
 	 *
 	 * @return void
 	 */
+
+    protected $layout = 'dashboard.layouts.dashboard';
+
 	protected function setupLayout()
 	{
 		if ( ! is_null($this->layout))

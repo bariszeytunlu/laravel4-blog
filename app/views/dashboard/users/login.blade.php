@@ -1,13 +1,23 @@
-@extends('layouts.dashboard')
+@extends('dashboard.layouts.dashboard')
+
 @section('assets')
     {{-- only include css for login page --}}
     @parent
         {{ HTML::style('_assets/css/signin.css') }}
 @stop
+
 @section('content')
     <div class="container">
 
         {{ Form::open(array('route' => 'loginPost', 'class' =>'form-signin', 'method' =>'post')) }}
+
+
+
+            @if($errors->has())
+                @foreach($errors->all() as $messages)
+                    <div class="alert alert-danger"> {{ $messages }} </div>
+                @endforeach
+            @endif
 
             <h2 class="form-signin-heading">Baris's Blog</h2>
 
