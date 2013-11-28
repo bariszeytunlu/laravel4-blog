@@ -29,13 +29,26 @@ Route::group(array('prefix' => 'dashboard'), function()
 
 //  Auth Control
 
+Route::group(array('before' => 'auth'), function()
+{
+    \Route::get('elfinder', 'Barryvdh\ElfinderBundle\ElfinderController@showIndex');
+    \Route::any('elfinder/connector', 'Barryvdh\ElfinderBundle\ElfinderController@showConnector');
+    \Route::get('elfinder/tinymce', 'Barryvdh\ElfinderBundle\ElfinderController@showTinyMCE4');
+});
+
 Route::group(array('prefix' => 'dashboard', 'before' => 'auth'), function(){
+
+
 
     Route::get('/logout', array('as' => 'logout', 'uses' => 'Dashboard\UsersController@logout'));
     Route::get('/home', array('as' => 'home', 'uses' => 'Dashboard\HomeController@index'));
 
     // posts
     Route::get('posts', array('as' => 'posts', 'uses' => 'Dashboard\PostsController@index'));
+    Route::get('posts/create', array('as' => 'createToPost', 'uses' => 'Dashboard\PostsController@create'));
+    Route::post('posts/create', array('as' => 'storeToPost', 'uses' => 'Dashboard\PostsController@store'));
+    Route::get('posts/edit/{id}', array('as' => 'editToPost', 'uses' => 'Dashboard\PostsController@edit' ));
+    Route::post('posts/edit/{id}', array('as' => 'uptadeToPost', 'uses' => 'Dashboard\PostsController@update'));
 
 });
 
