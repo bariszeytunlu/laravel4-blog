@@ -9,7 +9,6 @@ use Auth;
 use Redirect;
 use Session;
 use Input;
-use Hash;
 use User;
 
 
@@ -38,10 +37,14 @@ use User;
 
                 if ( Auth::attempt($user) ) {
                     return Redirect::route('home');
+                } else {
+                    return Redirect::route('login')
+                        ->withErrors('Kullanıcı adı veya parola hatalı.')
+                        ->withInput();
                 }
             }
                     return Redirect::route('login')
-                    ->withErrors($validation)->withInput();
+                        ->withErrors($validation)->withInput();
 
 
         }

@@ -21,7 +21,7 @@ Route::group(array('prefix' => 'dashboard'), function()
 {
     Route::get('/', array('as' => 'login', 'uses' => 'Dashboard\Userscontroller@index'));
     Route::post('/', array('as' => 'loginPost',
-                            'uses' => 'Dashboard\UsersController@signIn'
+                            'uses' => 'Dashboard\UsersController@signIn', 'before' => 'csrf'
                             ));
 
 
@@ -33,6 +33,9 @@ Route::group(array('prefix' => 'dashboard', 'before' => 'auth'), function(){
 
     Route::get('/logout', array('as' => 'logout', 'uses' => 'Dashboard\UsersController@logout'));
     Route::get('/home', array('as' => 'home', 'uses' => 'Dashboard\HomeController@index'));
+
+    // posts
+    Route::get('posts', array('as' => 'posts', 'uses' => 'Dashboard\PostsController@index'));
 
 });
 

@@ -4,7 +4,9 @@
         @include('dashboard.includes.nav')
     @endif
 
-    @yield('content')
 
+<div class="container">
+    @yield('content')
+</div>
 
 @include('dashboard.includes.footer')

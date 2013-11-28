@@ -28,14 +28,16 @@
                 </ul>
             </li>
         </ul>
+
         <form class="navbar-form navbar-left" role="search">
             <div class="form-group">
                 <input type="text" class="form-control" placeholder="Search">
             </div>
             <button type="submit" class="btn btn-default">Submit</button>
         </form>
+
         <ul class="nav navbar-nav navbar-right">
-            <li><a href="#">Link</a></li>
+            <li>{{ link_to_route('logout', ' Logout | '. Auth::user()->username ) }}</li>
             <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
                 <ul class="dropdown-menu">
