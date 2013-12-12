@@ -48,7 +48,23 @@ Route::group(array('prefix' => 'dashboard', 'before' => 'auth'), function(){
     Route::get('posts/create', array('as' => 'createToPost', 'uses' => 'Dashboard\PostsController@create'));
     Route::post('posts/create', array('as' => 'storeToPost', 'uses' => 'Dashboard\PostsController@store'));
     Route::get('posts/edit/{id}', array('as' => 'editToPost', 'uses' => 'Dashboard\PostsController@edit' ));
-    Route::post('posts/edit/{id}', array('as' => 'uptadeToPost', 'uses' => 'Dashboard\PostsController@update'));
+    Route::patch('posts/edit/{id}', array('as' => 'uptadeToPost', 'uses' => 'Dashboard\PostsController@update'));
+
+    //category
+    Route::post('posts/create/cat', array('as' => 'addToCategory', 'uses' => 'Dashboard\PostsController@insertCategory'));
+
+
+});
+
+Route::get('getdata', function(){
+   $post =  Post::find(3);
+
+    return $post->categories;
+});
+
+Route::get('truncatecat', function(){
+   $truncate = DB::table('categories')->truncate();
+   if ($truncate == true) return "Categories tablosu kaldırıldı";
 
 });
 

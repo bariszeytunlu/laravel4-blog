@@ -1,8 +1,14 @@
 @section('scripts')
         {{-- Bootstrap and another js files --}}
+        {{ HTML::script('_assets/js/jquery-1.10.2.js') }}
         {{ HTML::script('_assets/js/bootstrap.min.js') }}
-        {{ HTML::script('//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js') }}
+        {{ HTML::script('//code.jquery.com/ui/1.10.3/jquery-ui.js') }}
+        {{ HTML::script('_assets/js/bootstrap-tokenfield.min.js') }}
+        {{ HTML::script('_assets/js/typeahead.js') }}
         {{ HTML::script('_assets/js/tinymce.jquery.min.js') }}
+
+
+
 
         <script>
             tinymce.init({
@@ -49,6 +55,8 @@
                 });
                 return false;
             }
+
+
         </script>
 @show
 

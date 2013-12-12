@@ -1,7 +1,14 @@
 @extends('dashboard.layouts.dashboard')
 
 @section('content')
-    <h3><span class="glyphicon glyphicon-pushpin"></span> POSTS</h3>
+
+    @if (Session::has('success'))
+        <div class="alert alert-success"> {{ Session::get('success') }} </div>
+    @endif
+
+
+    <h3><span class="glyphicon glyphicon-pushpin"></span> POSTS
+    {{ link_to_route('createToPost', 'New Post', array(), array('class' => 'btn btn-success')) }} </h3>
 
 <table class="table table-hover">
     <thead>
@@ -22,7 +29,10 @@
         <td></td>
         <td></td>
         <td>
-            <button type="button" class="btn btn-primary">Edit</button>
+
+            {{ link_to_route('editToPost', 'Edit', array('id' => $post->id),
+            array('type' => 'button', 'class' => 'btn btn-primary')) }}
+
             <button type="button" class="btn btn-danger">Destroy</button>
         </td>
     </tr>

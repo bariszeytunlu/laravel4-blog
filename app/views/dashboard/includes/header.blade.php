@@ -13,6 +13,10 @@
         @section('assets')
             {{ HTML::style('_assets/css/bootstrap.min.css') }}
             {{ HTML::style('_assets/css/bootstrap-theme.min.css') }}
+            {{ HTML::style('//code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css') }}
+            {{ HTML::style('_assets/css/bootstrap-tokenfield.css') }}
+
+
         @show
 
 

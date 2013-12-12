@@ -116,6 +116,8 @@ return array(
         'Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider',
         'Way\Generators\GeneratorsServiceProvider',
         'Barryvdh\ElfinderBundle\ElfinderBundleServiceProvider',
+        'Clockwork\Support\Laravel\ClockworkServiceProvider',
+
 
 
 

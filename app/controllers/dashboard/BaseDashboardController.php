@@ -16,6 +16,10 @@ class BaseDashboardController extends Controller {
 		{
 			$this->layout = View::make($this->layout);
 		}
+
+        
 	}
+
+
 
 }
